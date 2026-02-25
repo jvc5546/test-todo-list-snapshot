@@ -18,3 +18,5 @@ services:
 
 volumes:
   mongo-data:
+    driver_opts:
+      class: csi-okteto
