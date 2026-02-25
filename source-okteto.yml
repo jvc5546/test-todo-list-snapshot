@@ -3,4 +3,4 @@ build:
     context: .
 
 deploy:
-  compose: docker-compose.yml
+  compose: source-docker-compose.yml
