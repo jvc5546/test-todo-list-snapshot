@@ -1,0 +1,6 @@
+build:
+  app:
+    context: .
+
+deploy:
+  compose: docker-compose.yml
