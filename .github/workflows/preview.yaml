@@ -12,6 +12,8 @@ concurrency:
 jobs:
   preview:
     runs-on: ubuntu-latest
+    env:
+      OKTETO_CA_CERT: ${{ secrets.OKTETO_CA_CERT }}
     steps:
       - name: Context
         uses: okteto/context@latest
