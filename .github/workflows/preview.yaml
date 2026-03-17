@@ -28,3 +28,4 @@ jobs:
         with:
           name: pr-${{ github.event.number }}
           timeout: 15m
+          file: source-okteto.yml
