@@ -22,7 +22,7 @@ jobs:
           token: ${{ secrets.OKTETO_TOKEN }}
 
       - name: Deploy preview environment
-        uses: okteto/deploy-preview@latest
+        uses: okteto/deploy-preview@6eba897ae5e68a2831dd52c8ceb36cf8c9b72a06
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
