@@ -16,7 +16,7 @@ jobs:
       OKTETO_CA_CERT: ${{ secrets.OKTETO_CA_CERT }}
     steps:
       - name: Context
-        uses: okteto/context@latest
+        uses: okteto/context@ac2c5c46b93c101a125c978aa1181ac9e997f511
         with:
           url: ${{secrets.OKTETO_CONTEXT}}
           token: ${{ secrets.OKTETO_TOKEN }}
