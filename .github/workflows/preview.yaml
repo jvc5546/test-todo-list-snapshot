@@ -15,6 +15,11 @@ jobs:
     env:
       OKTETO_CA_CERT: ${{ secrets.OKTETO_CA_CERT }}
     steps:
+      - name: Context
+        uses: okteto/context@main
+        with:
+          url: ${{secrets.OKTETO_CONTEXT}}
+          token: ${{ secrets.OKTETO_TOKEN }}
       - name: Deploy preview environment
         uses: okteto/deploy-preview@main
         env:
@@ -23,5 +28,3 @@ jobs:
           name: pr-${{ github.event.number }}
           timeout: 15m
           file: source-okteto.yml
-          url: https://okteto.jvc5546.dev.okteto.net
-          token: ${{ secrets.OKTETO_TOKEN }}
