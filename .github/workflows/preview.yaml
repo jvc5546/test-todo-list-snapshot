@@ -23,5 +23,5 @@ jobs:
           name: pr-${{ github.event.number }}
           timeout: 15m
           file: source-okteto.yml
-          url: ${{secrets.OKTETO_CONTEXT}}
+          url: https://okteto.jvc5546.dev.okteto.net
           token: ${{ secrets.OKTETO_TOKEN }}
