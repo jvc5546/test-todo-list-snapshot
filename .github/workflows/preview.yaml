@@ -16,13 +16,13 @@ jobs:
       OKTETO_CA_CERT: ${{ secrets.OKTETO_CA_CERT }}
     steps:
       - name: Context
-        uses: okteto/context@ac2c5c46b93c101a125c978aa1181ac9e997f511
+        uses: okteto/context@master
         with:
           url: ${{secrets.OKTETO_CONTEXT}}
           token: ${{ secrets.OKTETO_TOKEN }}
 
       - name: Deploy preview environment
-        uses: okteto/deploy-preview@6eba897ae5e68a2831dd52c8ceb36cf8c9b72a06
+        uses: okteto/deploy-preview@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
