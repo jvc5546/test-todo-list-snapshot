@@ -1,0 +1,7 @@
+# okteto-snapshot-class-retain.yaml
+apiVersion: snapshot.storage.k8s.io/v1
+kind: VolumeSnapshotClass
+metadata:
+  name: okteto-snapshot-class-retain
+driver: pd.csi.storage.gke.io   # same CSI driver as csi-okteto
+deletionPolicy: Retain
