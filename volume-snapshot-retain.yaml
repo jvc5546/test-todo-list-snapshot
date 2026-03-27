@@ -1,0 +1,8 @@
+apiVersion: snapshot.storage.k8s.io/v1
+kind: VolumeSnapshot
+metadata:
+  name: mongo-snapshot-retain
+spec:
+  volumeSnapshotClassName: okteto-snapshot-class-retain
+  source:
+    persistentVolumeClaimName: mongo-data
