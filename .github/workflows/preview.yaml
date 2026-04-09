@@ -1,0 +1,30 @@
+# file: .github/workflows/preview.yaml
+on:
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  # more info here: https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#concurrency
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    env:
+      OKTETO_CA_CERT: ${{ secrets.OKTETO_CA_CERT }}
+    steps:
+      - name: Context
+        uses: okteto/context@main
+        with:
+          url: ${{secrets.OKTETO_CONTEXT}}
+          token: ${{ secrets.OKTETO_TOKEN }}
+      - name: Deploy preview environment
+        uses: okteto/deploy-preview@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          name: pr-${{ github.event.number }}
+          timeout: 15m
+          file: source-okteto.yml
